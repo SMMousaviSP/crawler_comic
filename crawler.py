@@ -1,3 +1,10 @@
+import os
+
+
+# Enter the path you want to save your comics
+PATH_TO_COMIC = '/tmp/'
+
+
 def normalize_string(raw_string):
     """ Normalize string by replacing all spaces with '_' and change all
     characters to lower case.
@@ -7,3 +14,15 @@ def normalize_string(raw_string):
 
     """
     return raw_string.strip().lower().replace(' ', '_').replace('/', '_').replace('\\', '_')
+
+
+def mkdir(dir_name):
+    """ Create directory in PATH_TO_COMIC location if it's not already exists.
+
+    :param dir_name: Directory name.
+    :returns: Void.
+
+    """
+    dir_name = PATH_TO_COMIC + dir_name
+    if not os.path.exists(dir_name):
+        os.mkdir(dir_name)
